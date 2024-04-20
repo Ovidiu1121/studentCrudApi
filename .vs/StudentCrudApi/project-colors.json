@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ba70c7a7-487c-45a1-addd-ee833389e516": {
+      "ProjectGuid": "ba70c7a7-487c-45a1-addd-ee833389e516",
+      "DisplayName": "StudentCrudApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

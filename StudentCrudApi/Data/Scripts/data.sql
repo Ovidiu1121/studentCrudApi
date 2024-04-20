@@ -1,0 +1,10 @@
+﻿insert into student (id, name, age, specialization) values (1, 'Damaris', 25, 'Programmer IV');
+insert into student (id, name, age, specialization) values (2, 'Eilis', 22, 'Senior Financial Analyst');
+insert into student (id, name, age, specialization) values (3, 'Brynna', 24, 'Nurse Practicioner');
+insert into student (id, name, age, specialization) values (4, 'Myranda', 22, 'Associate Professor');
+insert into student (id, name, age, specialization) values (5, 'Allyce', 23, 'Developer IV');
+insert into student (id, name, age, specialization) values (6, 'Nickey', 22, 'Human Resources Assistant III');
+insert into student (id, name, age, specialization) values (7, 'Bee', 20, 'Chemical Engineer');
+insert into student (id, name, age, specialization) values (8, 'Petunia', 21, 'Technical Writer');
+insert into student (id, name, age, specialization) values (9, 'Wallis', 22, 'Health Coach IV');
+insert into student (id, name, age, specialization) values (10, 'Catina', 21, 'Compensation Analyst');
