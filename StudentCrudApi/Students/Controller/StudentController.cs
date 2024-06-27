@@ -19,13 +19,13 @@ namespace StudentCrudApi.Students.Controller
             _studentQueryService = studentQueryService;
         }
 
-        public override async Task<ActionResult<Student>> CreateStudent([FromBody] CreateStudentRequest request)
+        public override async Task<ActionResult<StudentDto>> CreateStudent([FromBody] CreateStudentRequest request)
         {
             try
             {
                 var students = await _studentCommandService.CreateStudent(request);
 
-                return Ok(students);
+                return Created("Studentul a fost adaugat",students);
             }
             catch (ItemAlreadyExists ex)
             {
@@ -33,7 +33,7 @@ namespace StudentCrudApi.Students.Controller
             }
         }
 
-        public override async Task<ActionResult<Student>> DeleteStudent([FromRoute] int id)
+        public override async Task<ActionResult<StudentDto>> DeleteStudent([FromRoute] int id)
         {
 
             try
@@ -48,7 +48,7 @@ namespace StudentCrudApi.Students.Controller
             }
         }
 
-        public override async Task<ActionResult<IEnumerable<Student>>> GetAll()
+        public override async Task<ActionResult<ListStudentDto>> GetAll()
         {
             try
             {
@@ -61,7 +61,7 @@ namespace StudentCrudApi.Students.Controller
             }
         }
 
-        public override async Task<ActionResult<Student>> GetByNameRoute([FromRoute] string name)
+        public override async Task<ActionResult<StudentDto>> GetByNameRoute([FromRoute] string name)
         {
             try
             {
@@ -74,11 +74,11 @@ namespace StudentCrudApi.Students.Controller
             }
         }
 
-        public override async Task<ActionResult<Student>> UpdateStudent([FromRoute] int id, [FromBody] UpdateStudentRequest request)
+        public override async Task<ActionResult<StudentDto>> UpdateStudent([FromRoute] int id, [FromBody] UpdateStudentRequest request)
         {
             try
             {
-                var students = await _studentQueryService.GetById(id);
+                var students = await _studentCommandService.UpdateStudent(id,request);
                 return Ok(students);
             }
             catch (ItemDoesNotExist ex)

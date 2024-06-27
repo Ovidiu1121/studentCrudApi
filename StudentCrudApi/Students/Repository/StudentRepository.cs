@@ -3,7 +3,7 @@ using StudentCrudApi.Data;
 using StudentCrudApi.Dto;
 using StudentCrudApi.Students.Model;
 using StudentCrudApi.Students.Repository.interfaces;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudentCrudApi.Students.Repository
 {
@@ -18,7 +18,7 @@ namespace StudentCrudApi.Students.Repository
             this._mapper = mapper;
         }
 
-        public async Task<Student> CreateStudent(CreateStudentRequest request)
+        public async Task<StudentDto> CreateStudent(CreateStudentRequest request)
         {
             var student = _mapper.Map<Student>(request);
 
@@ -26,10 +26,10 @@ namespace StudentCrudApi.Students.Repository
 
             await _context.SaveChangesAsync();
 
-            return student;
+            return _mapper.Map<StudentDto>(student);
         }
 
-        public async Task<Student> DeleteStudent(int id)
+        public async Task<StudentDto> DeleteStudent(int id)
         {
             var student = await _context.Students.FindAsync(id);
 
@@ -37,25 +37,36 @@ namespace StudentCrudApi.Students.Repository
 
             await _context.SaveChangesAsync();
 
-            return student;
+            return _mapper.Map<StudentDto>(student);
         }
 
-        public async Task<IEnumerable<Student>> GetAllAsync()
+        public async Task<ListStudentDto> GetAllAsync()
         {
-            return await this._context.Students.ToListAsync();
+            List<Student> result = await _context.Students.ToListAsync();
+            
+            ListStudentDto listStudentDto = new ListStudentDto()
+            {
+                studentList = _mapper.Map<List<StudentDto>>(result)
+            };
+
+            return listStudentDto;
         }
 
-        public async Task<Student> GetByIdAsync(int id)
+        public async Task<StudentDto> GetByIdAsync(int id)
         {
-           return await _context.Students.FirstOrDefaultAsync(obj => obj.Id.Equals(id));
+            var student = await _context.Students.Where(s => s.Id == id).FirstOrDefaultAsync();
+            
+            return _mapper.Map<StudentDto>(student);
         }
 
-        public async Task<Student> GetByNameAsync(string name)
+        public async Task<StudentDto> GetByNameAsync(string name)
         {
-            return await _context.Students.FirstOrDefaultAsync(obj => obj.Name.Equals(name));
+            var student = await _context.Students.Where(s => s.Name.Equals(name)).FirstOrDefaultAsync();
+            
+            return _mapper.Map<StudentDto>(student);
         }
 
-        public async Task<Student> UpdateStudent(int id, UpdateStudentRequest request)
+        public async Task<StudentDto> UpdateStudent(int id, UpdateStudentRequest request)
         {
             var student = await _context.Students.FindAsync(id);
 
@@ -67,7 +78,7 @@ namespace StudentCrudApi.Students.Repository
 
             await _context.SaveChangesAsync();
 
-            return student;
+            return _mapper.Map<StudentDto>(student);
         }
     }
 }

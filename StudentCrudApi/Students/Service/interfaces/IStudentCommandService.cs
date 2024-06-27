@@ -5,8 +5,8 @@ namespace StudentCrudApi.Students.Service.interfaces
 {
     public interface IStudentCommandService
     {
-        Task<Student> CreateStudent(CreateStudentRequest request);
-        Task<Student> UpdateStudent(int id, UpdateStudentRequest request);
-        Task<Student> DeleteStudent(int id);
+        Task<StudentDto> CreateStudent(CreateStudentRequest request);
+        Task<StudentDto> UpdateStudent(int id, UpdateStudentRequest request);
+        Task<StudentDto> DeleteStudent(int id);
     }
 }

@@ -16,9 +16,9 @@ namespace StudentCrudApi.Students.Service
             _repository = repository;
         }
 
-        public async Task<Student> CreateStudent(CreateStudentRequest request)
+        public async Task<StudentDto> CreateStudent(CreateStudentRequest request)
         {
-            Student student = await _repository.GetByNameAsync(request.Name);
+            StudentDto student = await _repository.GetByNameAsync(request.Name);
 
             if (student!=null)
             {
@@ -29,9 +29,9 @@ namespace StudentCrudApi.Students.Service
             return student;
         }
 
-        public async Task<Student> DeleteStudent(int id)
+        public async Task<StudentDto> DeleteStudent(int id)
         {
-            Student student = await _repository.GetByIdAsync(id);
+            StudentDto student = await _repository.GetByIdAsync(id);
 
             if (student==null)
             {
@@ -42,10 +42,10 @@ namespace StudentCrudApi.Students.Service
             return student;
         }
 
-        public async Task<Student> UpdateStudent(int id, UpdateStudentRequest request)
+        public async Task<StudentDto> UpdateStudent(int id, UpdateStudentRequest request)
         {
 
-            Student product = await _repository.GetByIdAsync(id);
+            StudentDto product = await _repository.GetByIdAsync(id);
 
             if (product==null)
             {

@@ -1,4 +1,5 @@
 ﻿
+using StudentCrudApi.Dto;
 using StudentCrudApi.Students.Model;
 using StudentCrudApi.Students.Repository.interfaces;
 using StudentCrudApi.Students.Service.interfaces;
@@ -16,11 +17,11 @@ namespace StudentCrudApi.Students.Service
             _repository = repository;
         }
 
-        public async Task<IEnumerable<Student>> GetAllStudents()
+        public async Task<ListStudentDto> GetAllStudents()
         {
-            IEnumerable<Student> students = await _repository.GetAllAsync();
+            ListStudentDto students = await _repository.GetAllAsync();
 
-            if (students.Count().Equals(0))
+            if (students.studentList.Count().Equals(0))
             {
                 throw new ItemDoesNotExist(Constants.NO_STUDENTS_EXIST);
             }
@@ -28,9 +29,9 @@ namespace StudentCrudApi.Students.Service
             return students;
         }
 
-        public async Task<Student> GetById(int id)
+        public async Task<StudentDto> GetById(int id)
         {
-            Student students = await _repository.GetByIdAsync(id);
+            StudentDto students = await _repository.GetByIdAsync(id);
 
             if (students == null)
             {
@@ -40,9 +41,9 @@ namespace StudentCrudApi.Students.Service
             return students;
         }
 
-        public async Task<Student> GetByName(string name)
+        public async Task<StudentDto> GetByName(string name)
         {
-            Student students = await _repository.GetByNameAsync(name);
+            StudentDto students = await _repository.GetByNameAsync(name);
 
             if (students == null)
             {

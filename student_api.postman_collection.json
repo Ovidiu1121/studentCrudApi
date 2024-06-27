@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "a0ade932-21c5-4467-9d1a-6b230d295c0a",
+		"name": "student_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33660681"
+	},
+	"item": [
+		{
+			"name": "GetByNameRoute",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7222/api/v1/Student/Nickey",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7222",
+					"path": [
+						"api",
+						"v1",
+						"Student",
+						"Nickey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllStudents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7222/api/v1/Student/all",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7222",
+					"path": [
+						"api",
+						"v1",
+						"Student",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POSTCreateStudent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Ana\",\r\n  \"age\": 22,\r\n  \"specialization\": \"IT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7222/api/v1/Student/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7222",
+					"path": [
+						"api",
+						"v1",
+						"Student",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUTUpdateStudent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"age\":41\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7222/api/v1/Student/update/12",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7222",
+					"path": [
+						"api",
+						"v1",
+						"Student",
+						"update",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteStudent",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7222/api/v1/Student/delete/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7222",
+					"path": [
+						"api",
+						"v1",
+						"Student",
+						"delete",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

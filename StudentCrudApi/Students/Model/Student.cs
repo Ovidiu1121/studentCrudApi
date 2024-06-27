@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentCrudApi.Students.Model
 {
-    [Table("student_db")]
+    [Table("student")]
     public class Student
     {
 

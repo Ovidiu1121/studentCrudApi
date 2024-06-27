@@ -10,6 +10,7 @@ namespace StudentCrudApi.Mappings
         {
             CreateMap<CreateStudentRequest, Student>();
             CreateMap<UpdateStudentRequest, Student>();
+            CreateMap<StudentDto, Student>().ReverseMap();
         }
     }
 }

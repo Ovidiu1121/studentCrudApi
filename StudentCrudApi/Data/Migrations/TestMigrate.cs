@@ -7,7 +7,7 @@ namespace StudentCrudApi.Data.Migrations
     {
         public override void Down()
         {
-            throw new NotImplementedException();
+           
         }
 
         public override void Up()

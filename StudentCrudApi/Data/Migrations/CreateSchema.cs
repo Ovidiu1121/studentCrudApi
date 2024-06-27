@@ -7,16 +7,16 @@ namespace StudentCrudApi.Data.Migrations
     {
         public override void Down()
         {
-            throw new NotImplementedException();
+          
         }
 
         public override void Up()
         {
             Create.Table("student")
                  .WithColumn("id").AsInt32().PrimaryKey().Identity()
-                 .WithColumn("name").AsString().NotNullable()
+                 .WithColumn("name").AsString(128).NotNullable()
                  .WithColumn("age").AsInt32().NotNullable()
-                 .WithColumn("specialization").AsString().NotNullable();
+                 .WithColumn("specialization").AsString(128).NotNullable();
         }
     }
 }

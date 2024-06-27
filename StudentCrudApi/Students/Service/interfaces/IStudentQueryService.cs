@@ -1,12 +1,13 @@
-﻿using StudentCrudApi.Students.Model;
+﻿using StudentCrudApi.Dto;
+using StudentCrudApi.Students.Model;
 
 namespace StudentCrudApi.Students.Service.interfaces
 {
     public interface IStudentQueryService
     {
-        Task<IEnumerable<Student>> GetAllStudents();
-        Task<Student> GetByName(string name);
-        Task<Student> GetById(int id);
+        Task<ListStudentDto> GetAllStudents();
+        Task<StudentDto> GetByName(string name);
+        Task<StudentDto> GetById(int id);
 
     }
 }

@@ -11,27 +11,27 @@ namespace StudentCrudApi.Students.Controller.interfaces
         [HttpGet("all")]
         [ProducesResponseType(statusCode: 200, type: typeof(IEnumerable<Student>))]
         [ProducesResponseType(statusCode: 404, type: typeof(String))]
-        public abstract Task<ActionResult<IEnumerable<Student>>> GetAll();
+        public abstract Task<ActionResult<ListStudentDto>> GetAll();
 
         [HttpPost("create")]
         [ProducesResponseType(statusCode: 201, type: typeof(Student))]
         [ProducesResponseType(statusCode: 400, type: typeof(String))]
-        public abstract Task<ActionResult<Student>> CreateStudent([FromBody] CreateStudentRequest request);
+        public abstract Task<ActionResult<StudentDto>> CreateStudent([FromBody] CreateStudentRequest request);
 
         [HttpPut("update/{id}")]
         [ProducesResponseType(statusCode: 202, type: typeof(Student))]
         [ProducesResponseType(statusCode: 400, type: typeof(String))]
         [ProducesResponseType(statusCode: 404, type: typeof(String))]
-        public abstract Task<ActionResult<Student>> UpdateStudent([FromRoute] int id, [FromBody] UpdateStudentRequest request);
+        public abstract Task<ActionResult<StudentDto>> UpdateStudent([FromRoute] int id, [FromBody] UpdateStudentRequest request);
 
         [HttpDelete("delete/{id}")]
         [ProducesResponseType(statusCode: 202, type: typeof(Student))]
         [ProducesResponseType(statusCode: 404, type: typeof(String))]
-        public abstract Task<ActionResult<Student>> DeleteStudent([FromRoute] int id);
+        public abstract Task<ActionResult<StudentDto>> DeleteStudent([FromRoute] int id);
 
-        [HttpGet("{name}")]
+        [HttpGet("name/{name}")]
         [ProducesResponseType(statusCode: 202, type: typeof(Student))]
         [ProducesResponseType(statusCode: 404, type: typeof(String))]
-        public abstract Task<ActionResult<Student>> GetByNameRoute([FromRoute] string name);
+        public abstract Task<ActionResult<StudentDto>> GetByNameRoute([FromRoute] string name);
     }
 }
